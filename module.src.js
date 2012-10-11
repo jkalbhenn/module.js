@@ -47,7 +47,7 @@ var $module = (function () {
 
   function $module (imports, ready) {
     if (!Array.isArray(imports)) { imports = [imports] }
-    importPaths = imports.filter(namespaceExistsNot).map(nameToFullPath)
+    var importPaths = imports.filter(namespaceExistsNot).map(nameToFullPath)
     if (importPaths.length) {
       var count = importPaths.length
       imports.forEach(function (ele) {
