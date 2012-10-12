@@ -4,6 +4,19 @@ A clean and simple module system for javascript.
   - Provides a concise syntax for defining and using modular code
   - Automatically loads all required modules
   - Supports namespaces and maps namespaces to directory structures
+  - Merging multiple module files into a single file is possible
+
+A module system gives the following benefits:
+  - When wanting to use a module, or a set of variables and functions for that matter, there is no need to manually order and include its dependencies in the html file, and less need to check the included bindings for possible name conflicts in the global namespace
+  - Simplifying development and maintenance through [information encapsulation](http://en.wikipedia.org/wiki/Information_hiding)
+  - Avoiding problems created by superfluous global variables.
+		Only exported bindings of a module are visible to module users,
+		so no utility and helper bindings of a module are in the global
+    namespace
+  - Possible memory savings with local variables and garbage collection
+
+# Status
+The code is complete, but consider it beta because it hasn't undergone much testing yet.
 
 # Usage Examples
 Let ```/srv/http``` be our web server root, it could be any path.
@@ -104,6 +117,10 @@ module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, 
 
 - Modules are not imported multiple times
 - Dependencies are loaded asynchronuously
+- Namespaces are used because at definition, all modules share the same toplevel namespace and
+  there seems to be no other way to separate individual modules
+- Circular dependencies are not supported yet, but it may be possible to support it in the future to some extent
 
 ## License
-The module.js part of the code stands under a GPLv3 license. ``module.src.js`` contains comments for detailed licensing information.
+module.js part of the code: [GPL v3](http://www.gnu.org/licenses/gpl-3.0.txt) or later. ``module.src.js`` contains easily visible comments for detailed licensing information.
+module.js documentation including this text: [GFDL v1.3](http://www.gnu.org/licenses/fdl-1.3.txt) or later
