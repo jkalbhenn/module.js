@@ -122,5 +122,5 @@ module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, 
 - Circular dependencies are not supported yet, but it may be possible to support it in the future to some extent
 
 ## License
-module.js part of the code: [GPL v3](http://www.gnu.org/licenses/gpl-3.0.txt) or later. ``module.src.js`` contains easily visible comments for detailed licensing information.
-module.js documentation including this text: [GFDL v1.3](http://www.gnu.org/licenses/fdl-1.3.txt) or later
+- module.js part of the code: [GPL v3](http://www.gnu.org/licenses/gpl-3.0.txt) or later. ``module.src.js`` contains easily visible comments for detailed licensing information
+- module.js documentation including this text: [GFDL v1.3](http://www.gnu.org/licenses/fdl-1.3.txt) or later
