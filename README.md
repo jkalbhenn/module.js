@@ -7,11 +7,11 @@ A clean and simple module system for javascript.
   - Merging multiple module files into a single file is possible
 
 A module system gives the following benefits:
-  - When wanting to use a module, or a set of variables and functions for that matter, there is no need to manually order and include its dependencies in the html file, and less need to check the included bindings for possible name conflicts in the global namespace
+  - When trying to use a module, or a set of variables and functions for that matter, there is no need to manually order and include its dependencies in the html file, and less need to check the list of included bindings for possible name conflicts in the global namespace
   - Simplifying development and maintenance through [information encapsulation](http://en.wikipedia.org/wiki/Information_hiding)
   - Avoiding problems created by superfluous global variables.
 		Only exported bindings of a module are visible to module users,
-		so no utility and helper bindings of a module are in the global
+		so no unexported utility and helper bindings of a module get into the global
     namespace
   - Possible memory savings with local variables and garbage collection
 
