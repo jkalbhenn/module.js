@@ -23,7 +23,7 @@ Let ```/srv/http``` be our web server root, it could be any path.
 
 In file ``/srv/http/lib/javascript/a/b/c.js``, defining a module:
 ```javascript
-$module.define("a.b.c", function (exports) {
+module.define("a.b.c", function (exports) {
 
   var myvariable = 1
 
@@ -33,9 +33,9 @@ $module.define("a.b.c", function (exports) {
 
 In another file, say ``/srv/http/x.js``, including the module:
 ```javascript
-$module.loadPath("/lib/javascript/")
+module.loadPath("/lib/javascript/")
 
-$module("a.b.c", function () {
+module("a.b.c", function () {
 
   console.log("a variable from module a.b.c: ", a.b.c.myvariable)
 
@@ -46,7 +46,7 @@ $module("a.b.c", function () {
 
 Defining a module named "a.b.c" with dependencies on other modules, named "d" and "e.f":
 ```javascript
-$module.define("a.b.c", ["d", "e.f"], function (exports) {
+module.define("a.b.c", ["d", "e.f"], function (exports) {
 
   var a = 1
 
@@ -56,7 +56,7 @@ $module.define("a.b.c", ["d", "e.f"], function (exports) {
 
 Including multiple modules:
 ```javascript
-$module(["a.b.c", "d.e", "f"], function () {
+module(["a.b.c", "d.e", "f"], function () {
   //module bindings available in the objects a.b.c, d.e and f
 })
 ```
@@ -73,24 +73,24 @@ For example in an html file "index.html":
 # Syntax
 ## Module definition
 ```javascript
-$module.define(name, imports, body)
-// $module.define :: string, [string\Array(string, ...)], function(function)
+module.define(name, imports, body)
+// module.define :: string, [string\Array(string, ...)], function(function)
 ```
 or:
 ```javascript
-$module.define(name, body)
+module.define(name, body)
 ```
 
 ## Module loading
 ```javascript
-$module(imports, body)
-// $module :: string\Array(string, ...), function
+module(imports, body)
+// module :: string\Array(string, ...), function
 ```
 
 ## Setting the load path
 ```javascript
-$module.loadPath("/lib/javascript")
-// $module.loadPath :: string
+module.loadPath("/lib/javascript")
+// module.loadPath :: string
 ```
 
 Usually relative to a web server root. The default load path is the current directory.
