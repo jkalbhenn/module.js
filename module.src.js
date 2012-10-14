@@ -52,7 +52,8 @@ var module = (function () {
     if (importPaths.length) {
       var count = importPaths.length
       imports.forEach(function (ele) {
-	loading[ele] = function () { count == 1 ? ready() : count -= 1 }
+	var afterLoad = function () { count == 1 ? ready() : count -= 1 }
+	loading[ele] ? afterLoad() : loading[ele] = afterLoad
       })
       $script(importPaths)
     }
