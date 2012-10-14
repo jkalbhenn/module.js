@@ -89,7 +89,7 @@ module.define(name, body)
 
 ### Wrapping plain javascript files
 ```javascript
-module.wrap(name, nonModulePath)
+module.wrap(name, nonModulePath, body)
 // module.wrap :: string, string, [function(function)]
 ```
 or:
@@ -98,8 +98,8 @@ module.wrap(name, nonModulePath)
 ```
 
 ``nonModulePath`` is a typical filesystem path with "/" and filename extension, relative to ``loadPath``.
-By wrapping a file with the second for, the bindings of the plain javascript file will not be created in an object named like the module.
-Instead the file is evaluated as if the it was included at the toplevel. This can be archieved with the first form by calling "exports" without arguments.
+By wrapping a file with the second form, the bindings of the plain javascript file will not be created in an object named like the module.
+Instead the file is evaluated as if it was included at the toplevel. This can also be archieved with the first form by calling "exports" without arguments.
 
 ## Module loading
 ```javascript
