@@ -17,7 +17,9 @@ var module = (function () {
   var loading = {}
 
   function setDefined (name) {
-    if (loading[name]) { loading[name](); delete loading[name] }
+    if (loading[name] !== undefined) {
+      loading[name].forEach(function (ele) { ele() }); delete loading[name]
+    }
   }
 
   function ensureTrailingSlash (str) {
@@ -48,12 +50,17 @@ var module = (function () {
 
   function module (imports, ready) {
     if (!Array.isArray(imports)) { imports = [imports] }
-    var importPaths = imports.filter(namespaceExistsNot).map(nameToFullPath)
-    if (importPaths.length) {
-      var count = importPaths.length
+    var imports = imports.filter(namespaceExistsNot)
+    if (imports.length) {
+      var count = imports.length
+      var importPaths = []
       imports.forEach(function (ele) {
 	var afterLoad = function () { count == 1 ? ready() : count -= 1 }
-	loading[ele] ? afterLoad() : loading[ele] = afterLoad
+	if (loading[ele] !== undefined) { loading[ele].push(afterLoad) }
+	else {
+	  loading[ele] = [afterLoad]
+	  importPaths.push(nameToFullPath(ele))
+	}
       })
       $script(importPaths)
     }
@@ -66,6 +73,7 @@ var module = (function () {
 
   module.define = function (name, imports, body) {
     if (!body) { body = imports; imports = [] }
+    if (!loading[name]) { loading[name] = [] }
     module(imports, function () {
       body(function (exports) {
         if (exports) { simpleObjectMerge(namespace(name), exports) }
