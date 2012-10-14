@@ -5,6 +5,7 @@ A clean and simple module system for javascript.
   - Automatically loads all required modules
   - Supports namespaces and maps namespaces to directory structures
   - Merging multiple module files into a single file is possible
+  - Non-modules are easily made one without changing their code
 
 A module system gives the following benefits:
   - When trying to use a module, or a set of variables and functions for that matter, there is no need to manually order and include its dependencies in the html file, and less need to check the list of included bindings for possible name conflicts in the global namespace
@@ -61,6 +62,11 @@ module(["a.b.c", "d.e", "f"], function () {
 })
 ```
 
+Wrapping a plain javascript file:
+```javascript
+module.wrap("jquery", "plain/jquery.js")
+```
+
 ## Installation
 Include ``module.js`` or ``module.compat.js`` in the code of your web application.
 For example in an html file "index.html":
@@ -80,6 +86,20 @@ or:
 ```javascript
 module.define(name, body)
 ```
+
+### Wrapping plain javascript files
+```javascript
+module.wrap(name, nonModulePath)
+// module.wrap :: string, string, [function(function)]
+```
+or:
+```javascript
+module.wrap(name, nonModulePath)
+```
+
+``nonModulePath`` is a typical filesystem path with "/" and filename extension, relative to ``loadPath``.
+By wrapping a file with the second for, the bindings of the plain javascript file will not be created in an object named like the module.
+Instead the file is evaluated as if the it was included at the toplevel. This can be archieved with the first form by calling "exports" without arguments.
 
 ## Module loading
 ```javascript

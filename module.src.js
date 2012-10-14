@@ -12,6 +12,7 @@
 var module = (function () {
   var loadPath = ""
   var namespaceDelimiter = "."
+  var namespaceDelimiterRegExp = /\./g
   var root = this
   var loading = {}
 
@@ -38,7 +39,7 @@ var module = (function () {
   }
 
   function nameToFullPath (arg) {
-    return loadPath + arg.replace(namespaceDelimiter, "/") + ".js"
+    return loadPath + arg.replace(namespaceDelimiterRegExp, "/") + ".js"
   }
 
   function simpleObjectMerge (target, source) {
@@ -66,9 +67,15 @@ var module = (function () {
     if (!body) { body = imports; imports = [] }
     module(imports, function () {
       body(function (exports) {
-        simpleObjectMerge(namespace(name), exports)
+        if (exports) { simpleObjectMerge(namespace(name), exports) }
         setDefined(name)
       })
+    })
+  }
+
+  module.wrap = function (name, nonModulePath, body) {
+    module.define(name, function (exports) {
+      $script(loadPath + nonModulePath, body ? function () { body(exports) } : exports)
     })
   }
 
