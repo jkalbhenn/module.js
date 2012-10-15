@@ -137,7 +137,7 @@ module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, 
 
 - Modules are not imported multiple times
 - Dependencies are loaded asynchronuously
-- Namespaces are used because at definition, all modules share the same toplevel namespace and
+- Namespaces are used because at definition all modules share the same toplevel namespace and
   there seems to be no other way to separate individual modules
 - Circular dependencies are not supported yet, but it may be possible to support it in the future to some extent
 
