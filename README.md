@@ -3,9 +3,9 @@ A clean and simple module system for javascript.
 
   - Provides a concise syntax for defining and using modular code
   - Automatically loads all required modules
-  - Supports namespaces and maps namespaces to directory structures
-  - Merging multiple module files into a single file is possible
+  - Allows having multiple modules in a single file
   - Non-modules can be wrapped into a module quickly without changing their code
+  - Supports namespaces and maps namespaces to directory structures
 
 A module system gives the following benefits:
   - When trying to use a module, or a set of variables and functions for that matter, there is no need to manually order and include its dependencies in the html file, and less need to check the list of included bindings for possible name conflicts in the global namespace
