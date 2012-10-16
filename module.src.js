@@ -55,12 +55,12 @@ var module = (function () {
       var count = imports.length
       var importPaths = []
       imports.forEach(function (ele) {
-	var afterLoad = function () { count == 1 ? ready() : count -= 1 }
-	if (loading[ele] !== undefined) { loading[ele].push(afterLoad) }
-	else {
-	  loading[ele] = [afterLoad]
-	  importPaths.push(nameToFullPath(ele))
-	}
+        var afterLoad = function () { count == 1 ? ready() : count -= 1 }
+        if (loading[ele] !== undefined) { loading[ele].push(afterLoad) }
+        else {
+          loading[ele] = [afterLoad]
+          importPaths.push(nameToFullPath(ele))
+        }
       })
       $script(importPaths)
     }
