@@ -67,7 +67,7 @@ Wrapping a plain javascript file:
 module.wrap("jquery", "plain/jquery.js")
 ```
 
-Or if it is already loaded
+Or if the plain javascript file is already loaded, defining an empty module:
 ```javascript
 module.define("jquery")
 ```
