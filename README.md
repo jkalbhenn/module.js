@@ -86,8 +86,22 @@ or:
 ```javascript
 module.define(name, body)
 ```
+or:
+```javascript
+module.define(name)
+```
+
+The last form always creates an empty object for the namespace given as "name" if the it did not previously exist.
 
 ### Wrapping plain javascript files
+#### Without file-loading
+Use module.define().
+For example when the plain javascript file has already been loaded you can define an empty module
+```javascript
+module.define(name)
+```
+
+#### With file-loading
 ```javascript
 module.wrap(name, nonModulePath, body)
 // module.wrap :: string, string, [function(function)]
