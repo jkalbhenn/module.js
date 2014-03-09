@@ -91,7 +91,7 @@ or:
 module.define(name)
 ```
 
-The last form always creates an empty object for the namespace given as "name" if the it did not previously exist.
+The last form always creates an empty object for the namespace specified in "name" if it did not previously exist.
 
 ### Wrapping plain javascript files
 #### Without file-loading
