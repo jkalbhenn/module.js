@@ -67,6 +67,11 @@ Wrapping a plain javascript file:
 module.wrap("jquery", "plain/jquery.js")
 ```
 
+Or if it is already loaded
+```javascript
+module.define("jquery")
+```
+
 ## Installation
 Include ``module.js`` or ``module.compat.js`` in the code of your web application.
 For example in an html file "index.html":
