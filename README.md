@@ -154,12 +154,11 @@ There are two builds with equivalent functionality - one only for modern browser
 ## Implementation
 module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for loading dependencies.
 
-- Modules are not imported multiple times
+- Modules are never imported multiple times
 - Dependencies are loaded asynchronuously
 - Namespaces are used because at definition all modules share the same toplevel namespace and
   there seems to be no other way to separate individual modules
-- Circular dependencies are not supported yet, but it may be possible to support it in the future to some extent
 
 ## License
 - module.js part of the code: [GPL v3](http://www.gnu.org/licenses/gpl-3.0.txt) or later. ``module.src.js`` contains easily visible comments for detailed licensing information
-- module.js documentation including this text: [GFDL v1.3](http://www.gnu.org/licenses/fdl-1.3.txt) or later
+- module.js documentation including this text: [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/)
