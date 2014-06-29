@@ -2,9 +2,9 @@
 A clean and simple module system for javascript.
 
   - Provides a concise syntax for defining and using modular code
-  - Automatically loads all required modules
-  - Allows having multiple modules in a single file
+  - Allows to define multiple modules in a single file
   - Non-modules can be wrapped into a module quickly without changing their code
+  - If a module is not already included, it tries to automatically load it using a load path
   - Supports namespaces and maps namespaces to directory structures
 
 A module system gives the following benefits:
