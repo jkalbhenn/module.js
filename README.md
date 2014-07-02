@@ -24,11 +24,11 @@ Let ```/srv/http``` be our web server root, it could be any path.
 
 In file ``/srv/http/lib/javascript/a/b/c.js``, defining a module:
 ```javascript
-module.define("a.b.c", function (exports) {
+module.define("a.b.c", function (export) {
 
   var myvariable = 1
 
-  exports({myvariable: myvariable})
+  export({myvariable: myvariable})
 })
 ```
 
@@ -47,11 +47,11 @@ module("a.b.c", function () {
 
 Defining a module named "a.b.c" with dependencies on other modules, named "d" and "e.f":
 ```javascript
-module.define("a.b.c", ["d", "e.f"], function (exports) {
+module.define("a.b.c", ["d", "e.f"], function (export) {
 
   var a = 1
 
-  exports({a: a})
+  export({a: a})
 })
 ```
 
@@ -118,7 +118,7 @@ module.wrap(name, nonModulePath)
 
 ``nonModulePath`` is a typical filesystem path with "/" and filename extension, relative to ``loadPath``.
 By wrapping a file with the second form, the bindings of the plain javascript file will not be created in an object named like the module.
-Instead the file is evaluated as if it was included at the toplevel. This can also be archieved with the first form by calling "exports" without arguments.
+Instead the file is evaluated as if it was included at the toplevel. This can also be archieved with the first form by calling "export" without arguments.
 
 ## Module loading
 ```javascript
