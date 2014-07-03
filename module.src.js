@@ -77,16 +77,16 @@ var module = (function () {
     }
     if (!loading[name]) { loading[name] = [] }
     module(imports, function () {
-      body(function (export) {
-        if (export) { simpleObjectMerge(namespace(name), export) }
+      body(function (exports) {
+        if (exports) { simpleObjectMerge(namespace(name), exports) }
         setDefined(name)
       })
     })
   }
 
   module.wrap = function (name, nonModulePath, body) {
-    module.define(name, function (export) {
-      $script(loadPath + nonModulePath, body ? function () { body(export) } : export)
+    module.define(name, function (exports) {
+      $script(loadPath + nonModulePath, body ? function () { body(exports) } : exports)
     })
   }
 
