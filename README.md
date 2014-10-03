@@ -14,7 +14,6 @@ A module system gives the following benefits:
 		Only exported bindings of a module are visible to module users,
 		so no unexported utility and helper bindings of a module get into the global
     namespace
-  - Possible memory savings with local variables and garbage collection
 
 # Status
 The code is complete, but consider it beta because it hasn't undergone much testing yet.
