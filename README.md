@@ -11,7 +11,7 @@ A clean and simple module system for javascript
   - Autoload for modules that are not already loaded. Maps module names to directory structures and uses a load path
 
 # Usage Examples
-Let ```/srv/http``` be our web server root, it could be any path.
+Let ```/srv/http``` be our web server root, it could be any path
 
 In file ``/srv/http/lib/javascript/a/b/c.js``, defining a module:
 ```javascript
@@ -87,7 +87,7 @@ or:
 module.define(name)
 ```
 
-The last form always creates an empty object for the namespace specified in "name" if it did not previously exist.
+The last form always creates an empty object for the namespace specified in "name" if it did not previously exist
 
 ### Wrapping plain javascript files
 #### Without file-loading
@@ -109,7 +109,7 @@ module.wrap(name, nonModulePath)
 
 ``nonModulePath`` is a typical filesystem path with "/" and filename extension, relative to ``loadPath``.
 By wrapping a file with the second form, the bindings of the plain javascript file will not be created in an object named like the module.
-Instead the file is evaluated as if it was included at the toplevel. This can also be archieved with the first form by calling "export" without arguments.
+Instead the file is evaluated as if it was included at the toplevel. This can also be archieved with the first form by calling "export" without arguments
 
 ## Module loading
 ```javascript
@@ -124,10 +124,10 @@ module.loadPath("/lib/javascript")
 ```
 
 Usually relative to a web server root. The default load path is the current directory.
-Setting the load path would only be necessary once, in a toplevel javascript file that only includes modules.
+Setting the load path would only be necessary once, in a toplevel javascript file that only includes modules
 
 ## Module names
-Names are strings of arbitrary length, corresponding to relative paths under load path which identify javascript files, with "/" replaced by dots and without filename extensions.
+Names are strings of arbitrary length, corresponding to relative paths under load path which identify javascript files, with "/" replaced by dots and without filename extensions
 
 ### Example
 - Load path: "/lib/javascript/"
@@ -136,19 +136,17 @@ Names are strings of arbitrary length, corresponding to relative paths under loa
     "a.b.c"
 
 ## Compatibility
-There are two builds with equivalent functionality - one only for modern browsers, and one for modern and older browsers.
+There are two builds with equivalent functionality - one only for modern browsers, and one for modern and older browsers
 
-``module.js`` runs only on browsers supporting at least javascript 1.8, that is, all common, up to date browsers in the year 2012.
+``module.js`` runs only on browsers supporting at least javascript 1.8, that is, all common, up to date browsers in the year 2012
 
-``module.compat.js`` is like ``module.js`` but includes support for older browser versions, for example microsoft internet explorer before version 9.
+``module.compat.js`` is like ``module.js`` but includes support for older browser versions, for example microsoft internet explorer before version 9
 
 ## Implementation
-module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for loading dependencies.
+module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for loading dependencies
 
 - Modules are never imported multiple times
 - Dependencies are loaded asynchronuously
-- Namespaces are used because at definition all modules share the same toplevel namespace and
-  there seems to be no other way to separate individual modules
 
 ## License
 - module.js part of the code: [GPL v3](http://www.gnu.org/licenses/gpl-3.0.txt) or later. ``module.src.js`` contains easily visible comments for detailed licensing information
