@@ -1,22 +1,14 @@
 # module.js
-A clean and simple module system for javascript.
+A clean and simple module system for javascript
 
-  - Provides a concise syntax for defining and using modular code
-  - Allows to define multiple modules in a single file
-  - Non-modules can be wrapped into a module quickly without changing their code
-  - If a module is not already included, it tries to automatically load it using a load path
-  - Supports namespaces and maps namespaces to directory structures
-
-A module system gives the following benefits:
-  - When trying to use a module, or a set of variables and functions for that matter, there is no need to manually order and include its dependencies in the html file, and less need to check the list of included bindings for possible name conflicts in the global namespace
-  - Simplifying development and maintenance through [information encapsulation](http://en.wikipedia.org/wiki/Information_hiding)
-  - Avoiding problems created by superfluous global variables.
-		Only exported bindings of a module are visible to module users,
-		so no unexported utility and helper bindings of a module get into the global
-    namespace
-
-# Status
-The code is complete, but consider it beta because it hasn't undergone much testing yet.
+  - Provides a concise syntax for the creation and use of modular code
+  - Module code is not executed unless all dependencies are ready
+  - A module is a set of variables which are stored in separate predictably named global objects
+  - Because only selected bindings of a module are accessible to module users, internal utility bindings can not create name conflicts in the top-level namespace ([information encapsulation](http://en.wikipedia.org/wiki/Information_hiding))
+  - Multiple modules can be defined in a single file
+  - More functional, simpler and easier to use than RequireJS
+  - Non-modules can be made to be a module quickly without changing their code
+  - Autoload for modules that are not already loaded. Maps module names to directory structures and uses a load path
 
 # Usage Examples
 Let ```/srv/http``` be our web server root, it could be any path.
