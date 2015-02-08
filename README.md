@@ -143,7 +143,7 @@ There are two builds with equivalent functionality - one only for modern browser
 ``module.compat.js`` is like ``module.js`` but includes support for older browser versions, for example microsoft internet explorer before version 9
 
 ## Implementation
-module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for loading dependencies
+module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for autoloading dependencies
 
 - Modules are never imported multiple times
 - Dependencies are loaded asynchronuously
