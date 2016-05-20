@@ -1,14 +1,14 @@
 # module.js
-a clean and simple module system for javascript
+a clean and simple module system for javascript.
 
   - provides a concise syntax for the creation and use of modular code
-  - more functional, simpler and easier to use than requirejs
-  - modules are sets of variables stored in predictably named global objects
+  - more functional, simpler and easier to use than requireJs
   - non-modules can be made to be a module quickly without changing their code
   - because only exported bindings of a module are accessible to module users, internal utility bindings can not create name conflicts in the top-level namespace ([information encapsulation](http://en.wikipedia.org/wiki/information_hiding))
+  - modules are sets of variables stored in predictably named global objects
   - multiple modules can be defined in a single file
-  - module code is not executed unless all dependencies are ready
   - autoload for modules that are not already loaded. maps module names to directory structures and uses a load path
+  - module code is not executed unless all dependencies are ready
 
 # usage examples
 let ```/srv/http``` be our web server root, it could be any path.
@@ -134,7 +134,7 @@ there are two builds with equivalent functionality - one only for modern browser
 ``module.compat.js`` is like ``module.js`` but includes support for older browser versions, for example microsoft internet explorer before version 9.
 
 ## implementation
-module.js is implemented in plain javascript, ~1300 bytes minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for autoloading dependencies.
+module.js is implemented in plain javascript, ~11 kilobits minified and gzipped, and uses [ded/script.js](https://github.com/ded/script.js) for autoloading dependencies.
 
 - modules are never imported multiple times
 - dependencies are loaded asynchronuously
